@@ -4,7 +4,7 @@ Bankroll.ai is a simple auto-roller writtern in ES5.  Users should have knowledg
 
   - Clone this repository
   - Edit the .env file using your favorite editor and rename to .env (don't share this file).
-  - Download and install node.js from [node.js]
+  - Download and install node.js from [node.js](https://nodejs.org/)
   - Open a command prompt
   - Install the dependencies and devDependencies and start the server.
 
