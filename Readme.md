@@ -1,6 +1,6 @@
 # Bankroll.ai
 
-Bankroll.ai is an simple auto-roller writtern in ES5.  Users should have knowledge of how to install software and use a command-line prompt.  Ready to get started?  Follow the steps below...
+Bankroll.ai is a simple auto-roller writtern in ES5.  Users should have knowledge of how to install software and use a command-line prompt.  Ready to get started?  Follow the steps below...
 
   - Clone this repository
   - Edit the .env file using your favorite editor and rename to .env (don't share this file).
