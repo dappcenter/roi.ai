@@ -22,19 +22,17 @@ const Utils = {
     },
 };
 
-const rollIntegerVariables = [1, 97, 250, 0, 0];
-
-const roll = () => {
+const reinvest = () => {
     if (Utils.contract) {
         Utils.contract
             .then((contract) => {
                 contract
-                    .roll(rollIntegerVariables, "0x000000000000000000000000000000000000000000000000000000005cc21073", "TFwSxkqGKTRua2JhoL65JeuRgfjLLzhD3R")
-                    .send({ callValue: 250000000 })
+                    .reinvest()
+                    .send({ callValue: 0 })
                     .then((response) => {
                         const txn = response;
 
-                        console.log("TriggerContract (roll) view txn result here... https://api.trongrid.io/wallet/gettransactionbyid?value=" + response);
+                        console.log("TriggerContract (reinvest) view txn result here... https://api.trongrid.io/wallet/gettransactionbyid?value=" + response);
 
                         return true;
                     })
@@ -75,11 +73,11 @@ if (EVERY_30_MINUTES === 'Y') {
 
 Utils.setTronWeb(NetworkAdapter);
 
-setInterval(() => {
-    roll();
-}, interval);
-
-roll();
+// setInterval(() => {
+//     reinvest();
+// }, interval);
+//
+// reinvest();
 
 http.listen(35500, () => {
     console.log("Listening on *:35500");
