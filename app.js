@@ -22,15 +22,30 @@ const Utils = {
     },
 };
 
-const rollIntegerVariables = [1, 97, 250, 0, 0];
+const bets = [
+    { low: 0, high: 96 },
+    { low: 1, high: 97 },
+    { low: 2, high: 98 },
+];
+const wager = 135;
+const seed = "0x000000000000000000000000000000000000000000000000000000005cc21073";
+// const seed = "0x000000000000000000000000000000000000000000000000000000005cc2265d";
+// const seed = "0x000000000000000000000000000000000000000000000000000000005cc22f2a";
 
 const roll = () => {
+    const   bet = bets[((max) => {
+        return Math.floor(Math.random() * Math.floor(max));
+    })(bets.length)];
+    const rollIntegerVariables = [bet.low, bet.high, wager, 0, 0];
+
+    console.log("Wager " + wager + " $trx on " + bet.low + " - " + bet.high);
+
     if (Utils.contract) {
         Utils.contract
             .then((contract) => {
                 contract
-                    .roll(rollIntegerVariables, "0x000000000000000000000000000000000000000000000000000000005cc21073", "TFwSxkqGKTRua2JhoL65JeuRgfjLLzhD3R")
-                    .send({ callValue: 250000000 })
+                    .roll(rollIntegerVariables, seed, "TFwSxkqGKTRua2JhoL65JeuRgfjLLzhD3R")
+                    .send({ callValue: wager * 1000000 })
                     .then((response) => {
                         const txn = response;
 
