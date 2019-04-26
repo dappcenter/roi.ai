@@ -2,7 +2,7 @@ const app = require("express")();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const TronWeb = require("tronweb");
-require('dotenv').config();
+require("dotenv").config();
 
 const TRONGRID_API_FULL = "https://api.trongrid.io";
 const TRONGRID_API_SOL = "https://api.trongrid.io";
@@ -22,20 +22,17 @@ const Utils = {
     },
 };
 
-const bets = [
-    { low: 0, high: 96 },
-    { low: 1, high: 97 },
-    { low: 2, high: 98 },
-];
-const wager = 135;
-const seed = "0x000000000000000000000000000000000000000000000000000000005cc21073";
-// const seed = "0x000000000000000000000000000000000000000000000000000000005cc2265d";
-// const seed = "0x000000000000000000000000000000000000000000000000000000005cc22f2a";
+const bets = [{ low: 0, high: 96 }, { low: 1, high: 97 }, { low: 2, high: 98 }];
+const wager = 209;
+const seed = "0x00000000000000000000000000000000000000000000000000000000" + (new Date().getTime() >> 3).toString(16);
 
 const roll = () => {
-    const   bet = bets[((max) => {
-        return Math.floor(Math.random() * Math.floor(max));
-    })(bets.length)];
+    const bet =
+        bets[
+            ((max) => {
+                return Math.floor(Math.random() * Math.floor(max));
+            })(bets.length)
+        ];
     const rollIntegerVariables = [bet.low, bet.high, wager, 0, 0];
 
     console.log("Wager " + wager + " $trx on " + bet.low + " - " + bet.high);
@@ -49,7 +46,10 @@ const roll = () => {
                     .then((response) => {
                         const txn = response;
 
-                        console.log("TriggerContract (roll) view txn result here... https://api.trongrid.io/wallet/gettransactionbyid?value=" + response);
+                        console.log(
+                            "TriggerContract (roll) view txn result here... https://api.trongrid.io/wallet/gettransactionbyid?value=" +
+                                response
+                        );
 
                         return true;
                     })
@@ -80,11 +80,11 @@ if (EVERY_XX_MINUTES > 0) {
     interval = EVERY_XX_MINUTES * 60000;
 }
 
-if (EVERY_05_MINUTES === 'Y') {
+if (EVERY_05_MINUTES === "Y") {
     interval = 300000;
 }
 
-if (EVERY_30_MINUTES === 'Y') {
+if (EVERY_30_MINUTES === "Y") {
     interval = 1800000;
 }
 
