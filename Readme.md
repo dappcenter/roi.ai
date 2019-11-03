@@ -1,6 +1,6 @@
-# Bankroll.ai
+# Roi.ai
 
-Bankroll.ai is a simple auto-roller writtern in ES5.  Users should have knowledge of how to install software and use a command-line prompt.  Ready to get started?  Follow the steps below...
+Roi.ai is a simple auto-roller writtern in ES5.  Users should have knowledge of how to install software and use a command-line prompt.  Ready to get started?  Follow the steps below...
 
   - Clone this repository
   - Edit the .env file using your favorite editor and rename to .env (don't share this file).
@@ -9,7 +9,7 @@ Bankroll.ai is a simple auto-roller writtern in ES5.  Users should have knowledg
   - Install the dependencies and devDependencies and start the server.
 
 ```sh
-$ cd bankroll.ai
+$ cd roi.ai
 $ npm install -d
 $ npm run start
 ```
