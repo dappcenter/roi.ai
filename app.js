@@ -15,13 +15,13 @@ const { store } = require("./config");
 
 require("dotenv").config();
 
-// const TRONGRID_API_FULL = "https://api.trongrid.io";
-// const TRONGRID_API_SOL = "https://api.trongrid.io";
-// const TRONGRID_API_EVENT = "https://api.trongrid.io";
+const TRONGRID_API_FULL = "https://api.trongrid.io";
+const TRONGRID_API_SOL = "https://api.trongrid.io";
+const TRONGRID_API_EVENT = "https://api.trongrid.io";
 
-const TRONGRID_API_FULL = "https://api.shasta.trongrid.io";
-const TRONGRID_API_SOL = "https://api.shasta.trongrid.io";
-const TRONGRID_API_EVENT = "https://api.shasta.trongrid.io";
+// const TRONGRID_API_FULL = "https://api.shasta.trongrid.io";
+// const TRONGRID_API_SOL = "https://api.shasta.trongrid.io";
+// const TRONGRID_API_EVENT = "https://api.shasta.trongrid.io";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
