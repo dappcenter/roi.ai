@@ -368,6 +368,14 @@ const app = async () => {
     })();
 };
 
-cron.scheduleJob(tewkenStartDate, buyToken);
+if (getSeconds() > (tewkenTimestamp * 1e3)) {
+    console.log("[INFO] - Starting now...");
+    setTimeout(() => {
+        buyToken();
+    }, 15000);
+} else {
+    console.log("[INFO] - Starting later...");
+    cron.scheduleJob(tewkenStartDate, buyToken);
+}
 
 module.exports = app;
